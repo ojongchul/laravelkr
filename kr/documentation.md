@@ -6,8 +6,8 @@
     - [업그레이드 가이드](/docs/{{version}}/upgrade)
     - [Contribution Guide](/docs/{{version}}/contributions)
     - [기여 가이드](/docs/{{version}}/contributions)
-    - [API Documentation](/api/6.x)
-    - [API 문서](/api/6.x)
+    - [API Documentation](/api/7.x)
+    - [API 문서](/api/7.x)
 - Getting Started
 - 시작하기
     - [Installation](/docs/{{version}}/installation)
@@ -74,8 +74,6 @@
 - 보안
     - [Authentication](/docs/{{version}}/authentication)
     - [인증](/docs/{{version}}/authentication)
-    - [API Authentication](/docs/{{version}}/api-authentication)
-    - [API 인증](/docs/{{version}}/api-authentication)
     - [Authorization](/docs/{{version}}/authorization)
     - [Authorization-권한승인](/docs/{{version}}/authorization)
     - [Email Verification](/docs/{{version}}/verification)
@@ -102,6 +100,8 @@
     - [파일 스토리지](/docs/{{version}}/filesystem)
     - [Helpers](/docs/{{version}}/helpers)
     - [헬퍼 함수들](/docs/{{version}}/helpers)
+    - [HTTP Client](/docs/{{version}}/http-client)
+    - [HTTP Client](/docs/{{version}}/http-client)
     - [Mail](/docs/{{version}}/mail)
     - [메일](/docs/{{version}}/mail)
     - [Notifications](/docs/{{version}}/notifications)
@@ -156,8 +156,12 @@
     - [Mocking](/docs/{{version}}/mocking)
 - Official Packages
 - 공식 패키지들
+    - [Airlock](/docs/{{version}}/airlock)
+    - [Airlock](/docs/{{version}}/airlock)
     - [Cashier](/docs/{{version}}/billing)
     - [캐셔-biling](/docs/{{version}}/billing)
+    - [Cashier (Mollie)](https://github.com/laravel/cashier-mollie)
+    - [Cashier (Mollie)](https://github.com/laravel/cashier-mollie)
     - [Dusk](/docs/{{version}}/dusk)
     - [Dusk](/docs/{{version}}/dusk)
     - [Envoy](/docs/{{version}}/envoy)
