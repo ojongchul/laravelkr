@@ -14,7 +14,7 @@
     - [Hiding Environment Variables From Debug Pages](#hiding-environment-variables-from-debug)
     - [디버그 페이지에서 환경 변수 숨기기](#hiding-environment-variables-from-debug)
 - [Accessing Configuration Values](#accessing-configuration-values)
-- [설정 값에 엑세스 하기](#accessing-configuration-values)
+- [설정값에 엑세스하기](#accessing-configuration-values)
 - [Configuration Caching](#configuration-caching)
 - [설정 캐시](#configuration-caching)
 - [Maintenance Mode](#maintenance-mode)
@@ -42,7 +42,7 @@ To make this a cinch, Laravel utilizes the [DotEnv](https://github.com/vlucas/ph
 
 Your `.env` file should not be committed to your application's source control, since each developer / server using your application could require a different environment configuration. Furthermore, this would be a security risk in the event an intruder gains access to your source control repository, since any sensitive credentials would get exposed.
 
-`.env` 파일은 소스 컨트롤에 커밋하지 마세요. 각 개발자나 서버가 필요로하는 환경이 다를 수 있기 때문입니다. 또한 이는 공격자가 소스 컨트롤 저장소에 접근 권한을 얻게 되는 경우에, 민감한 계정 정보가 노출될 위험이 있어 보안 취약점이 될 수도 있습니다.
+`.env` 파일은 소스 컨트롤에 커밋하지 마세요. 각 개발자나 서버가 필요로 하는 환경이 다를 수 있기 때문입니다. 또한 이는 공격자가 소스 컨트롤 저장소에 접근 권한을 얻게 되는 경우에, 민감한 계정 정보가 노출될 위험이 있어 보안 취약점이 될 수도 있습니다.
 
 If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting placeholder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application. You may also create a `.env.testing` file. This file will override the `.env` file when running PHPUnit tests or executing Artisan commands with the `--env=testing` option.
 
@@ -103,7 +103,7 @@ The current application environment is determined via the `APP_ENV` variable fro
 
 You may also pass arguments to the `environment` method to check if the environment matches a given value. The method will return `true` if the environment matches any of the given values:
 
-또한 `environment` 메소드에 확인하고자 하는 구동 환경에 대한 값을 인자로 전달할 수도 있습니다. 메소드는 주어진 값들에 일치하는 게 하나라도 있다면 `true`를 반환할 것입니다.
+`environment` 메소드에 확인하려는 환경 설정 값을 파라미터로 전달할 수 있습니다. 일치하는 값이 있다면 `true`를 반환합니다.
 
     if (App::environment('local')) {
         // The environment is local
@@ -115,7 +115,7 @@ You may also pass arguments to the `environment` method to check if the environm
 
 > {tip} The current application environment detection can be overridden by a server-level `APP_ENV` environment variable. This can be useful when you need to share the same application for different environment configurations, so you can set up a given host to match a given environment in your server's configurations.
 
-> {tip} 현재의 애플리케이션 구동 환경의 감지하는 것은 서버의 APP_ENV 환경 변수에 의해서 오버라이딩 될 수 있습니다. 이 기능은 여러개의 환경 구성에 동일한 애플리케이션을 공유해야 할 때 유용하며, 따라서 여러분은 주어진 호스트가 주어진 환경과 매칭되도록 설정할 수 있습니다.
+> {tip} 현재 구동 환경을 감지하는 것은 서버의 `APP_ENV` 환경 변수에 의해서 오버라이딩 될 수 있습니다. 같은 애플리케이션을 여러 환경으로 공유해서 사용할 때 유용합니다. 서버와 호스트 설정이 매칭되도록 설정할 수 있습니다.
 
 <a name="hiding-environment-variables-from-debug"></a>
 ### Hiding Environment Variables From Debug Pages
@@ -123,11 +123,11 @@ You may also pass arguments to the `environment` method to check if the environm
 
 When an exception is uncaught and the `APP_DEBUG` environment variable is `true`, the debug page will show all environment variables and their contents. In some cases you may want to obscure certain variables. You may do this by updating the `debug_blacklist` option in your `config/app.php` configuration file.
 
-예외가 발생하지 않고 `APP_DEBUG` 환경 변수가 `true` 라면, 디버그 페이지는 모든 환경 변수와 그 내용을 보여줍니다. 경우에 따라 특정 변수를 가릴 수 있습니다. `config/app.php` 설정 파일에서 `debug_blacklist` 옵션을 업데이트하면됩니다.
+예외가 발생하지 않았고 `APP_DEBUG` 변수가 `true`라면 디버그 페이지는 모든 환경 변수와 내용을 보여줍니다. 경우에 따라 특정 변수를 감추고 싶을 때가 있습니다. `config/app.php` 설정 파일에서 `debug_blacklist` 옵션에 추가하면 됩니다.
 
 Some variables are available in both the environment variables and the server / request data. Therefore, you may need to blacklist them for both `$_ENV` and `$_SERVER`:
 
-일부 변수는 환경 변수와 서버 / 요청 데이터에서 모두 사용할 수 있습니다. 그러므로 `$_ENV` 와 `$_SERVER` 둘 다 블랙리스트에 올릴 필요가 있습니다.
+일부 변수는 환경 변수와 서버 / 요청 데이터에서 모두 사용할 수 있습니다. 이 때는 `$_ENV`와 `$_SERVER` 두 곳에 추가하면 됩니다.
 
     return [
 
@@ -152,11 +152,11 @@ Some variables are available in both the environment variables and the server / 
 
 <a name="accessing-configuration-values"></a>
 ## Accessing Configuration Values
-## 설정 값에 엑세스 하기
+## 설정값에 엑세스하기
 
 You may easily access your configuration values using the global `config` helper function from anywhere in your application. The configuration values may be accessed using "dot" syntax, which includes the name of the file and option you wish to access. A default value may also be specified and will be returned if the configuration option does not exist:
 
-애플리케이션의 어디에서라도 `config` 헬퍼 함수를 사용하여 손쉽게 설정 값에 엑세스 할 수 있습니다. 설정된 값은 파일의 이름과 엑세스 하고자 하는 옵션에 대해서, ".(점)" 문법을 사용하여 엑세스 할 수 있습니다. 설정된 옵션값이 존재하지 않았을 때 반환될 기본값을 지정할 수 있습니다.
+애플리케이션 어디에서든 `config` 헬퍼 함수를 사용해 설정 값에 엑세스 할 수 있습니다. 설정된 값은 파일의 이름과 엑세스 하고자 하는 옵션에 대해서, ".(점)" 문법을 사용하여 엑세스 할 수 있습니다. 설정된 옵션값이 존재하지 않았을 때 반환될 기본값을 지정할 수 있습니다.
 
     $value = config('app.timezone');
 
